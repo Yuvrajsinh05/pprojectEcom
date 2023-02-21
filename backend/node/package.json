@@ -1,0 +1,16 @@
+{
+  "name": "ecomback",
+  "version": "1.0.0",
+  "description": "exploring skill in node,express,mongodb && mumor",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.9.2",
+    "nodemon": "^2.0.20"
+  }
+}
