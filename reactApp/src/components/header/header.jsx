@@ -1,14 +1,16 @@
 // import {} from "./style.css"
+import { NavLink  , useNavigate} from "react-router-dom"
 
 export default function Header (){
+    const history = useNavigate();
             return(
                 <>
                 <div className="container-fluid">
                     <div className="row bg-secondary py-1 px-xl-5">
                         <div className="col-lg-6 d-none d-lg-block">
-                            <div className="d-inline-flex align-items-center h-100">
+                            <div className="d-inline-flex align-items-center h-100 uperNavItems">
                                 <a className="text-body mr-3" href="">About</a>
-                                <a className="text-body mr-3" href="">Contact</a>
+                               <NavLink to="/contact">   <a className="text-body list-none mr-3">Contact</a> </NavLink>
                                 <a className="text-body mr-3" href="">Help</a>
                                 <a className="text-body mr-3" href="">FAQs</a>
                             </div>
@@ -117,17 +119,18 @@ export default function Header (){
                                 </button>
                                 <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                                     <div className="navbar-nav mr-auto py-0">
-                                        <a href="index.html" className="nav-item nav-link active">Home</a>
-                                        <a href="shop.html" className="nav-item nav-link">Shop</a>
-                                        <a href="detail.html" className="nav-item nav-link">Shop Detail</a>
+                                        <NavLink to="/home">  <li  className="nav-item nav-link active">Home</li> </NavLink>
+                                        <NavLink to="/shop"> <li  className="nav-item nav-link">Shop</li>  </NavLink>
+                                        <NavLink to="/shopdetail">  <li className="nav-item nav-link ">Shop Detail</li> </NavLink>
                                         <div className="nav-item dropdown">
                                             <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i className="fa fa-angle-down mt-1"></i></a>
                                             <div className="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                                <a href="cart.html" className="dropdown-item">Shopping Cart</a>
-                                                <a href="checkout.html" className="dropdown-item">Checkout</a>
+                                              <NavLink to="/shoppingcart">   <li className="dropdown-item">Shopping Cart</li> </NavLink>
+                                              <NavLink to="/checkout">  <li  className="dropdown-item">Checkout</li>  </NavLink>
                                             </div>
                                         </div>
-                                        <a href="contact.html" className="nav-item nav-link">Contact</a>
+                                      <NavLink to="/contact">   <li className="nav-item nav-link" style={{border:"none" , textDecoration:"none"}}>Contact</li> </NavLink>
+                                   
                                     </div>
                                     <div className="navbar-nav ml-auto py-0 d-none d-lg-block">
                                         <a href="" className="btn px-0">
