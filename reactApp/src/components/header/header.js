@@ -2,6 +2,23 @@
 import { NavLink  , useNavigate} from "react-router-dom"
 
 export default function Header (){
+
+    const setNavItemColor=(val)=>{
+        // console.log(e.target);
+     
+        const itemarray2 = document.querySelectorAll("#navItems a")
+       console.log(itemarray2)
+        for(var i=0;i<itemarray2.length;i++){
+            console.log(itemarray2[i].style.color)
+            if(i==val){
+                continue
+            }else{
+                itemarray2[i].style.color="rgb(255 , 211 , 51)"
+            }
+        }
+        itemarray2[val].style.color=="rgb(245 , 245 , 245)" ? itemarray2[val].style.color="rgb(255 , 211 , 51)" :  itemarray2[val].style.color="rgb(245 , 245 , 245)"
+    }
+
     const history = useNavigate();
             return(
                 <>
@@ -118,18 +135,18 @@ export default function Header (){
                                     <span className="navbar-toggler-icon"></span>
                                 </button>
                                 <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                                    <div className="navbar-nav mr-auto py-0">
-                                        <NavLink to="/home">  <li  className="nav-item nav-link active">Home</li> </NavLink>
-                                        <NavLink to="/shop"> <li  className="nav-item nav-link">Shop</li>  </NavLink>
-                                        <NavLink to="/shopdetail">  <li className="nav-item nav-link ">Shop Detail</li> </NavLink>
+                                    <div className="navbar-nav mr-auto py-0" id="navItems">
+                                        <NavLink to="/home" style={{color:"rgb(245,245,245)"}}>  <li  className="nav-item nav-link active" onClick={()=>{setNavItemColor(0)}}  >Home</li> </NavLink>
+                                        <NavLink to="/shop" style={{color:"rgb(255,211,51)"}}>  <li  className="nav-item nav-link"        onClick={()=>{setNavItemColor(1)}} >Shop</li>  </NavLink>
+                                        <NavLink to="/shopdetail" style={{color:"rgb(255,211,51)"}}> <li className="nav-item nav-link "  onClick={()=>{setNavItemColor(2)}}  >Shop Detail</li> </NavLink>
                                         <div className="nav-item dropdown">
-                                            <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i className="fa fa-angle-down mt-1"></i></a>
+                                            <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown"style={{color:"rgb(245,245,245)"}}>Pages <i className="fa fa-angle-down mt-1"></i></a>
                                             <div className="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                              <NavLink to="/shoppingcart">   <li className="dropdown-item">Shopping Cart</li> </NavLink>
-                                              <NavLink to="/checkout">  <li  className="dropdown-item">Checkout</li>  </NavLink>
+                                              <NavLink to="/shoppingcart" >   <li className="dropdown-item" onClick={()=>{setNavItemColor(3)}} >Shopping Cart</li> </NavLink>
+                                              <NavLink to="/checkout">  <li  className="dropdown-item" onClick={()=>{setNavItemColor(3)}}>Checkout</li>  </NavLink>
                                             </div>
                                         </div>
-                                      <NavLink to="/contact">   <li className="nav-item nav-link" style={{border:"none" , textDecoration:"none"}}>Contact</li> </NavLink>
+                                      <NavLink to="/contact" style={{color:"rgb(255,211,51)"}}>   <li className="nav-item nav-link"onClick={(e)=>{setNavItemColor(6)}}  >Contact</li> </NavLink>
                                    
                                     </div>
                                     <div className="navbar-nav ml-auto py-0 d-none d-lg-block">
