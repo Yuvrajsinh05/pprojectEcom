@@ -22,7 +22,7 @@ function Contact() {
             <div className="col-lg-7 mb-5">
                 <div className="contact-form bg-light p-30">
                     <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                    <form name="sentMessage" id="contactForm" noValidate="novalidate">
                         <div className="control-group">
                             <input type="text" className="form-control" id="name" placeholder="Your Name"
                                 required="required" data-validation-required-message="Please enter your name" />
