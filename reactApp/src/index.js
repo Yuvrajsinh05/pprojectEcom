@@ -37,7 +37,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
     <Header/>
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
+        <Route path="/"  exact element={<Home/>}></Route>
         <Route path="/home" element={<Home/>}></Route>
         <Route path="/contact" element={<Contact/>}></Route>
         <Route path="/shoppingcart" element={<Cart/>}></Route>
