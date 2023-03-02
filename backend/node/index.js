@@ -7,6 +7,8 @@ const CategoriesSchema = require('./Schema/Categories')
 const app = express()
 app.use(express.json())
 app.use(cors())
+
+
 app.get('/Categories', async (req, res) => {
   let data = await CategoriesSchema.find()
   res.send(JSON.stringify(data))
