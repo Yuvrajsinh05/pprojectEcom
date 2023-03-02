@@ -4,4 +4,4 @@
 >  http://localhost:8670/Categories
 
 >> post new categories
->  localhost:8670/createCategories
+>  http://localhost:8670/createCategories
