@@ -15,6 +15,7 @@ export const Categories = () => {
         let temp = await getApiCall("http://localhost:8670/Categories")
         setData(temp)
     }
+    console.log("data",data)
     return (
         <>
             <div className="container-fluid pt-5">
