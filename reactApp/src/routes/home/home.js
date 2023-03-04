@@ -10,6 +10,7 @@ import {} from "./style.css"
 export default function Home (){
     return(
         <>
+        <div >
           <Carousel/>
           <Featured/>
           <Categories/>
@@ -19,6 +20,7 @@ export default function Home (){
           {/* <Vendor/>  */}
             {/* check this why not working  */   }
           <a href="#" className="btn btn-primary back-to-top"><i className="fa fa-angle-double-up"></i></a>
+          </div>
         </>
     )
 }

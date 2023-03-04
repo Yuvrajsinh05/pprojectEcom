@@ -10,7 +10,7 @@ import {
 // import Contact from "./routes/contact";
 import Contact from "./routes/contact/Contact";
 import ErrorPage from "./error";
-import Header from "./components/header/header";
+import {Header} from "./components/header/header";
 import Footer from "./components/footer/Footer";
 import Home from "./routes/home/home";
 import Cart from "./routes/cart/Cart";
@@ -35,10 +35,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
    
     {/* <RouterProvider router={router} /> */}
     <BrowserRouter>
-    <Header/>
+    <Header />
       <Routes>
         <Route path="/"  exact element={<Home/>}></Route>
-        <Route path="/home" element={<Home/>}></Route>
+        {/* <Route path="/home" element={<Home/>}></Route> */}
         <Route path="/contact" element={<Contact/>}></Route>
         <Route path="/shoppingcart" element={<Cart/>}></Route>
         <Route path="/checkout" element={<Checkout/>}></Route>
