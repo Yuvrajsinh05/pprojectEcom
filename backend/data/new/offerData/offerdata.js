@@ -3,10 +3,8 @@
     "description": "Get up to 50% off on all winter clothing",
     "startDate": "2023-01-01T00:00:00.000Z",
     "endDate": "2023-01-31T23:59:59.000Z",
-    "discount": {
-      "type": "percentage",
-      "value": 50
-    },
+    "discountType":"percentage",
+    "discountValue":"50%",
     "products": [
       {
         "name": "Men's Down Jacket",

@@ -29,11 +29,7 @@ const offerSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Categories',
     required: true
-  }],
-  imageUrl:{
-    type: String,
-    required: true
-  }
+  }]
 });
 
 module.exports = mongoose.model('Offer', offerSchema);

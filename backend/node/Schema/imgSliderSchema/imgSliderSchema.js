@@ -14,3 +14,5 @@ const imgSliderSchema = new mongoose.Schema({
    },
       
 })
+
+module.exports = mongoose.model('imgSlider',imgSliderSchema );
