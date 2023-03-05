@@ -3,7 +3,6 @@ import { NavLink, useNavigate } from "react-router-dom"
 
 
 export function FilterHead({ categories }) {
-    console.log("cat",categories)
     return (
         <>
             <div className="container-fluid bg-dark mb-30">
@@ -66,29 +65,9 @@ export function FilterHead({ categories }) {
 
         </>
     )
-
-
 }
 
-
-//     <>
-//            <div className="nav-item dropdown dropright">
-//             <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Dresses <i className="fa fa-angle-right float-right mt-1"></i></a>
-//             <div className="dropdown-menu position-absolute rounded-0 border-0 m-0">
-//                 <a href="" className="dropdown-item">Men's Dresses</a>
-//                 <a href="" className="dropdown-item">Women's Dresses</a>
-//                 <a href="" className="dropdown-item">Baby's Dresses</a>
-//             </div>
-//         </div>
-//     </>
-// )
-// }
-
-// <a href="" className="nav-item nav-link">Jeans</a>
-
 function Catemenu({ categories, key }) {
-    //   console.log("ok",key,categories)
-
     return (
         categories.map((subcat, index) => {
             return (
@@ -97,18 +76,23 @@ function Catemenu({ categories, key }) {
         }))
 }
 
-
-
 function MenuLink({ subcat }) {
-    
-// console.log("subtcat",subcat)
-    if(subcat.SubType != undefined ){
-        return(
-            // <h1>ok</h1>
-            null
+    if (subcat.SubType != undefined) {
+        console.log("this is real", subcat)
+        return (
+            <div className="nav-item dropdown dropright">
+                <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">{subcat.type}<i className="fa fa-angle-right float-right mt-1"></i></a>
+                <div className="dropdown-menu position-absolute rounded-0 border-0 m-0">
+                    {subcat.SubType.map((subT, index) => {
+                        return (<a href="" className="dropdown-item" key={index}>{subT.Name}</a>)
+                    })}
+
+                </div>
+            </div>
+            // null
         )
-    }else{
-        return(
+    } else {
+        return (
             <a href="" className="nav-item nav-link">{subcat.type}</a>
         )
     }

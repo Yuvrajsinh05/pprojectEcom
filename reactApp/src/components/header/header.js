@@ -5,11 +5,11 @@ import { getApiCall } from "../../requests/requests"
 import { FilterHead } from "./Filterhead"
 
 export const Header=()=>{
-  console.log("header called")
+//   console.log("header called")
     const [categories , setCategories]  = useState([])
     useEffect(() => {
         getCategories()
-        console.log("called effect")
+        // console.log("called effect")
     }, [])
 
 
@@ -19,7 +19,8 @@ export const Header=()=>{
         setCategories(res)
     }
     
-    
+    // console.log(categories)
+
     return (
         <>
             <ConfigHead/>

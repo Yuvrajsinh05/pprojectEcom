@@ -266,7 +266,7 @@ function Details() {
                 <div className="owl-carousel related-carousel">
                     <div className="product-item bg-light">
                         <div className="product-img position-relative overflow-hidden">
-                            <img className="img-fluid w-100" src="./publicassest/img/product-1.jpg" alt=""/>
+                            <img className="img-fluid w-50 h-50" src="./publicassest/img/product-1.jpg" alt=""/>
                             <div className="product-action">
                                 <a className="btn btn-outline-dark btn-square" href=""><i className="fa fa-shopping-cart"></i></a>
                                 <a className="btn btn-outline-dark btn-square" href=""><i className="far fa-heart"></i></a>
@@ -289,7 +289,7 @@ function Details() {
                             </div>
                         </div>
                     </div>
-                    <div className="product-item bg-light">
+                    {/* <div className="product-item bg-light">
                         <div className="product-img position-relative overflow-hidden">
                             <img className="img-fluid w-100" src="./publicassest/img/product-2.jpg" alt=""/>
                             <div className="product-action">
@@ -388,7 +388,7 @@ function Details() {
                                 <small>(99)</small>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
