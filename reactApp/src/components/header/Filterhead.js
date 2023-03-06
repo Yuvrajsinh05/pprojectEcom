@@ -67,7 +67,7 @@ function Catemenu({ categories, key }) {
     return (
         categories.map((subcat, index) => {
             if (subcat.SubType != undefined) {
-                console.log("this is real", subcat)
+                // console.log("this is real", subcat)
                 return (
                     <div className="nav-item dropdown dropright">
                         <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">{subcat.type}<i className="fa fa-angle-right float-right mt-1"></i></a>

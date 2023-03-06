@@ -2,12 +2,15 @@ const express = require('express')
 require('./config')
 const cors = require('cors');
 const CategoriesSchema = require('./Schema/Categories')
+const HomeCorouselSchema = require('./Schema/homecorousel')
 
 
 const app = express()
 app.use(express.json())
 app.use(cors())
 
+
+// categories section start here
 
 app.get('/Categories', async (req, res) => {
   let data = await CategoriesSchema.find()
@@ -46,7 +49,17 @@ app.post('/createCategories', async (req, res) => {
 })
 
 
+// categories section Ends here
 
+
+// homeCorousel starts here
+
+app.get('/homecorousel',async(req,res)=>{
+  let data = await HomeCorouselSchema.find()
+  console.log("data",data )
+  res.send((JSON.stringify(data)))
+  res.end()
+})
 
 app.listen(8670, () => {
   console.log("server is runiing on", `${8670}`)

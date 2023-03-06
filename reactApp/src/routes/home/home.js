@@ -16,7 +16,8 @@ export default function Home (){
           <Categories/>
           <Products/>
           <Offer/>
-          <Products/> {/* this should be shown recent products */}
+          <Products/> 
+          {/* // this should be shown recent products */}
           {/* <Vendor/>  */}
             {/* check this why not working  */   }
           <a href="#" className="btn btn-primary back-to-top"><i className="fa fa-angle-double-up"></i></a>
