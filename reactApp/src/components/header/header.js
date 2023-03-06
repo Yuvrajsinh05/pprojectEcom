@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
 import { getApiCall } from "../../requests/requests"
 import { FilterHead } from "./Filterhead"
+import { Link } from 'react-router-dom';
 
 export const Header=()=>{
 //   console.log("header called")
@@ -42,10 +43,10 @@ function ConfigHead(){
                 <div className="row bg-secondary py-1 px-xl-5">
                     <div className="col-lg-6 d-none d-lg-block">
                         <div className="d-inline-flex align-items-center h-100 uperNavItems">
-                            <a className="text-body mr-3" href="">About</a>
-                            <NavLink to="/contact">   <a className="text-body list-none mr-3">Contact</a> </NavLink>
-                            <a className="text-body mr-3" href="">Help</a>
-                            <a className="text-body mr-3" href="">FAQs</a>
+                            <Link className="text-body mr-3" href="">About</Link>
+                            <Link className="text-body list-none mr-3">Contact</Link>
+                            <Link className="text-body mr-3" href="">Help</Link>
+                            <Link className="text-body mr-3" href="">FAQs</Link>
                         </div>
                     </div>
                     <div className="col-lg-6 text-center text-lg-right">
@@ -75,14 +76,14 @@ function ConfigHead(){
                             </div>
                         </div>
                         <div className="d-inline-flex align-items-center d-block d-lg-none">
-                            <a href="" className="btn px-0 ml-2">
+                            <Link href="" className="btn px-0 ml-2">
                                 <i className="fas fa-heart text-dark"></i>
                                 <span className="badge text-dark border border-dark rounded-circle" style={{ paddingBottom: "2px" }}>0</span>
-                            </a>
-                            <a href="" className="btn px-0 ml-2">
+                            </Link>
+                            <Link href="" className="btn px-0 ml-2">
                                 <i className="fas fa-shopping-cart text-dark"></i>
                                 <span className="badge text-dark border border-dark rounded-circle" style={{ paddingBottom: "2px" }}>0</span>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

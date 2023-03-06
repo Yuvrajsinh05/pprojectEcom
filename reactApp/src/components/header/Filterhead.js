@@ -1,5 +1,5 @@
 
-import { NavLink, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 export function FilterHead({ categories }) {
@@ -15,11 +15,7 @@ export function FilterHead({ categories }) {
                         </a>
                         <nav className="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style={{ width: "calc(100% - 30px)", zIndex: "999" }}>
                             <div className="navbar-nav w-100">
-                                {categories.map((cate, index) => {
-                                    return (
-                                        <Catemenu categories={cate.SubCategories} key={index} />
-                                    )
-                                })}
+                                {categories.map((cate, index) => { return <Catemenu categories={cate.SubCategories} key={index} />})}
                             </div>
                         </nav>
                     </div>
@@ -34,17 +30,17 @@ export function FilterHead({ categories }) {
                             </button>
                             <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                                 <div className="navbar-nav mr-auto py-0" id="navItems">
-                                    <NavLink to="/home" style={{ color: "rgb(245,245,245)" }}>  <li className="nav-item nav-link active">Home</li> </NavLink>
-                                    <NavLink to="/shop" style={{ color: "rgb(255,211,51)" }}>  <li className="nav-item nav-link">Shop</li>  </NavLink>
-                                    <NavLink to="/shopdetail" style={{ color: "rgb(255,211,51)" }}> <li className="nav-item nav-link ">Shop Detail</li> </NavLink>
+                                    <Link to="/" style={{ color: "rgb(245,245,245)" }}>  <li className="nav-item nav-link active">Home</li> </Link>
+                                    <Link to="/shop" style={{ color: "rgb(255,211,51)" }}>  <li className="nav-item nav-link">Shop</li>  </Link>
+                                    <Link to="/shopdetail" style={{ color: "rgb(255,211,51)" }}> <li className="nav-item nav-link ">Shop Detail</li> </Link>
                                     <div className="nav-item dropdown">
                                         <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown" style={{ color: "rgb(245,245,245)" }}>Pages <i className="fa fa-angle-down mt-1"></i></a>
                                         <div className="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                            <NavLink to="/shoppingcart" >   <li className="dropdown-item" >Shopping Cart</li> </NavLink>
-                                            <NavLink to="/checkout">  <li className="dropdown-item">Checkout</li>  </NavLink>
+                                            <Link to="/shoppingcart" >   <li className="dropdown-item" >Shopping Cart</li> </Link>
+                                            <Link to="/checkout">  <li className="dropdown-item">Checkout</li>  </Link>
                                         </div>
                                     </div>
-                                    <NavLink to="/contact" style={{ color: "rgb(255,211,51)" }}>   <li className="nav-item nav-link" o >Contact</li> </NavLink>
+                                    <Link to="/contact" style={{ color: "rgb(255,211,51)" }}>   <li className="nav-item nav-link" o >Contact</li> </Link>
 
                                 </div>
                                 <div className="navbar-nav ml-auto py-0 d-none d-lg-block">
@@ -70,31 +66,22 @@ export function FilterHead({ categories }) {
 function Catemenu({ categories, key }) {
     return (
         categories.map((subcat, index) => {
-            return (
-                <MenuLink subcat={subcat} />
-            )
+            if (subcat.SubType != undefined) {
+                console.log("this is real", subcat)
+                return (
+                    <div className="nav-item dropdown dropright">
+                        <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">{subcat.type}<i className="fa fa-angle-right float-right mt-1"></i></a>
+                        <div className="dropdown-menu position-absolute rounded-0 border-0 m-0">
+                            {subcat.SubType.map((subT, index) => {
+                                return (<a href="" className="dropdown-item" key={index}>{subT.Name}</a>)
+                            })}
+                        </div>
+                    </div>
+                )
+            } else {
+                return (
+                    <a href="" className="nav-item nav-link">{subcat.type}</a>
+                )
+            }
         }))
-}
-
-function MenuLink({ subcat }) {
-    if (subcat.SubType != undefined) {
-        console.log("this is real", subcat)
-        return (
-            <div className="nav-item dropdown dropright">
-                <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">{subcat.type}<i className="fa fa-angle-right float-right mt-1"></i></a>
-                <div className="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                    {subcat.SubType.map((subT, index) => {
-                        return (<a href="" className="dropdown-item" key={index}>{subT.Name}</a>)
-                    })}
-
-                </div>
-            </div>
-            // null
-        )
-    } else {
-        return (
-            <a href="" className="nav-item nav-link">{subcat.type}</a>
-        )
-    }
-
 }
