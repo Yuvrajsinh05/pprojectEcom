@@ -1,7 +1,7 @@
 const express = require('express')
 require('./config')
 const cors = require('cors');
-const ObjectId = require('mongodb').ObjectId; 
+const ObjectId = require('mongodb').ObjectId;
 const CategoriesSchema = require('./Schema/Categories')
 const HomeCorouselSchema = require('./Schema/homecorousel')
 const Mobileschema = require('./Schema/subCategories/Mobiles&Accessories')
@@ -34,15 +34,15 @@ app.post('/createCategories', async (req, res) => {
     CategoriesId: randomString
   }
 
-  // function generates random string like "CATG23906056"
-
   function generateRandomString() {
+    // function generates random string like "CATG23906056"
     let result = "CATG";
     for (let i = 0; i < 8; i++) {
       result += Math.floor(Math.random() * 10);
     }
     return result;
   }
+
   try {
     const createCate = new CategoriesSchema(data)
     let response = await createCate.save()
@@ -52,21 +52,39 @@ app.post('/createCategories', async (req, res) => {
     return res.status(401).json({ message: "error found while creating new category" })
   }
 })
-
-
 // categories section Ends here
 
 
 // homeCorousel starts here
-
 app.get('/homecorousel', async (req, res) => {
   let data = await HomeCorouselSchema.find()
   console.log("data", data)
   res.send((JSON.stringify(data)))
   res.end()
 })
-
 // homeCarousel ends here
+
+// computer&Accessories start here 
+app.get('/computer&Accessories',async(req,res)=>{
+  try{
+    const collection = await computerSchema.find()
+    res.status(200).json({data:collection,message:"computer&Accessories data found"})
+  }catch(err){
+    res.status(400).json({message:"error found"})
+  } 
+})
+// computer&Accessories ends here .........
+
+// Mobileschema start here 
+app.get('/mobiles',async(req,res)=>{
+  try{
+    const collection = await Mobileschema.find()
+    res.status(200).json({data:collection,message:"Mobiles data found"})
+  }catch(err){
+    res.status(400).json({message:"error found"})
+  } 
+})
+// Mobileschema ends here .........
 
 
 
@@ -83,7 +101,7 @@ app.get('/homecorousel', async (req, res) => {
 //      ) 
 
 //     // let computerData = await Mobileschema.find()
-    
+
 //      res.status(200).json({data:computerData,message:"finnaly prove it"})
 //     }catch(err){
 //       res.status(400).json({message:"try hard"})
