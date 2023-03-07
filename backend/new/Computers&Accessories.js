@@ -1,6 +1,7 @@
 
 [
   {    
+    type:"Computers&Accessories",
     brand: "HP",
     model: "HP 250 G8 Laptop 11th Gen",
     price: 37299.00,

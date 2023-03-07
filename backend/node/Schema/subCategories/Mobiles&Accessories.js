@@ -11,7 +11,8 @@ const mobileSchema = new mongoose.Schema({
   storage: { type: String },
   weight: { type: Number },
   description: { type: String },
-  imageUrl: { type: String }
+  imageUrl: { type: String },
+  type:{type : String}
 });
 
 const Mobile = mongoose.model('Mobile', mobileSchema);

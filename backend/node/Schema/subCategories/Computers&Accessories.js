@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose =require('mongoose')
 
 const computerSchema = new mongoose.Schema({
   brand: { type: String, required: true },
@@ -11,9 +11,10 @@ const computerSchema = new mongoose.Schema({
   displaySize: { type: String },
   weight: { type: Number },
   description: { type: String },
-  imageUrl: { type: String }
+  imageUrl: { type: String },
+  type:{type : String}
 });
 
-const Computer = mongoose.model('Computer', computerSchema);
+const Computer = mongoose.model('computer&accesserioes', computerSchema);
 
 module.exports = Computer;

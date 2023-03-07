@@ -1,8 +1,11 @@
 const express = require('express')
 require('./config')
 const cors = require('cors');
+const ObjectId = require('mongodb').ObjectId; 
 const CategoriesSchema = require('./Schema/Categories')
 const HomeCorouselSchema = require('./Schema/homecorousel')
+const Mobileschema = require('./Schema/subCategories/Mobiles&Accessories')
+const computerSchema = require('./Schema/subCategories/Computers&Accessories')
 
 
 const app = express()
@@ -18,8 +21,10 @@ app.get('/Categories', async (req, res) => {
   res.end()
 })
 
+
+
 app.post('/createCategories', async (req, res) => {
-  
+
   let randomString = generateRandomString();
 
   let data = {
@@ -54,12 +59,38 @@ app.post('/createCategories', async (req, res) => {
 
 // homeCorousel starts here
 
-app.get('/homecorousel',async(req,res)=>{
+app.get('/homecorousel', async (req, res) => {
   let data = await HomeCorouselSchema.find()
-  console.log("data",data )
+  console.log("data", data)
   res.send((JSON.stringify(data)))
   res.end()
 })
+
+// homeCarousel ends here
+
+
+
+
+
+// update from here 
+
+// app.put('/update',async(req,res)=>{
+//   try{
+//     let computerData = await Mobileschema.updateMany(
+//       {
+//         $set:{type:"mobile&acceseries"}
+//       }
+//      ) 
+
+//     // let computerData = await Mobileschema.find()
+    
+//      res.status(200).json({data:computerData,message:"finnaly prove it"})
+//     }catch(err){
+//       res.status(400).json({message:"try hard"})
+//     }
+// })
+
+
 
 app.listen(8670, () => {
   console.log("server is runiing on", `${8670}`)
