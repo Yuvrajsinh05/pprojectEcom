@@ -64,23 +64,26 @@ export function FilterHead({ categories }) {
 }
 
 function Catemenu({ categories, key }) {
+    console.log("cat",categories)
     return (
         categories.map((subcat, index) => {
             if (subcat.SubType != undefined) {
                 // console.log("this is real", subcat)
                 return (
                     <div className="nav-item dropdown dropright">
-                        <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">{subcat.type}<i className="fa fa-angle-right float-right mt-1"></i></a>
+                        <Link  className="nav-link dropdown-toggle" data-toggle="dropdown">{subcat.type}<i className="fa fa-angle-right float-right mt-1"></i></Link>
                         <div className="dropdown-menu position-absolute rounded-0 border-0 m-0">
                             {subcat.SubType.map((subT, index) => {
-                                return (<a href="" className="dropdown-item" key={index}>{subT.Name}</a>)
+                                return (
+                                <a href={`/shop? ${subT.Name}`}  className="dropdown-item" key={index}>{subT.Name}</a>
+                                )
                             })}
                         </div>
                     </div>
                 )
             } else {
                 return (
-                    <a href="" className="nav-item nav-link">{subcat.type}</a>
+                    <a href={`/shop?${subcat.type}`} className="nav-item nav-link">{subcat.type}</a>
                 )
             }
         }))
