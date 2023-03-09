@@ -1,7 +1,17 @@
 ## categories
+ >> get all categories
+ >  http://localhost:8670/Categories
+ >> post new categories
+ >  http://localhost:8670/createCategories
 
->> get all categories
->  http://localhost:8670/Categories
+## homecarousel
+ >> http://localhost:8670/homecorousel
 
->> post new categories
->  http://localhost:8670/createCategories
+## mobiles
+ >> http://localhost:8670/mobiles
+
+## computer&Accessories
+ >> http://localhost:8670/computer&Accessories
+
+
+

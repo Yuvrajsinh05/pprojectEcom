@@ -1,6 +1,20 @@
+import { useEffect, useState } from "react"
 import { Images } from "../../../assets/images"
+import { getApiCall } from "../../../requests/requests"
 
 export default function Carousel() {
+ 
+    const [sliders , setSliders]= useState([])
+
+    useEffect(()=>{
+        getslider()
+    },[])
+
+    const getslider=async()=>{
+        let res = await getApiCall('http://localhost:8670/homecorousel')
+        setSliders(res)
+    }
+
     return (
         <>
             <div className="container-fluid mb-3">
@@ -12,33 +26,34 @@ export default function Carousel() {
                                 <li data-target="#header-carousel" data-slide-to="1"></li>
                                 <li data-target="#header-carousel" data-slide-to="2"></li>
                             </ol>
+                          
                             <div className="carousel-inner">
                                 <div className="carousel-item position-relative active" style={{ height: "430px" }}>
-                                    <img className="position-absolute w-100 h-100" src={Images.carousel_1} style={{ objectFit: "cover" }} />
+                                    <img className="position-absolute w-100 h-100" src={sliders[0]?.imageUrl|| Images.carousel_1} style={{ objectFit: "cover" }} />
                                     <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                         <div className="p-3" style={{ maxWidth: "700px" }}>
-                                            <h1 className="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men Fashion</h1>
-                                            <p className="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                            <h1 className="display-4 text-white mb-3 animate__animated animate__fadeInDown">{sliders[0]?.category}</h1>
+                                            <p className="mx-md-5 px-5 animate__animated animate__bounceIn">{sliders[0]?.description}</p>
                                             <a className="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="carousel-item position-relative" style={{ height: "430px" }}>
-                                    <img className="position-absolute w-100 h-100" src={Images.carousel_2}  style={{ objectFit: "cover" }} />
+                                    <img className="position-absolute w-100 h-100" src={sliders[1]?.imageUrl|| Images.carousel_2}  style={{ objectFit: "cover" }} />
                                     <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                         <div className="p-3" style={{ maxWidth: "700px" }}>
-                                            <h1 className="display-4 text-white mb-3 animate__animated animate__fadeInDown">Women Fashion</h1>
-                                            <p className="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                            <h1 className="display-4 text-white mb-3 animate__animated animate__fadeInDown">{sliders[1]?.category}</h1>
+                                            <p className="mx-md-5 px-5 animate__animated animate__bounceIn">{sliders[1]?.description}</p>
                                             <a className="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="carousel-item position-relative" style={{ height: "430px" }}>
-                                    <img className="position-absolute w-100 h-100" src={Images.carousel_3}  style={{ objectFit: "cover" }} />
+                                    <img className="position-absolute w-100 h-100" src={sliders[2]?.imageUrl|| Images.carousel_3}  style={{ objectFit: "cover" }} />
                                     <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                         <div className="p-3" style={{ maxWidth: "700px" }}>
-                                            <h1 className="display-4 text-white mb-3 animate__animated animate__fadeInDown">Kids Fashion</h1>
-                                            <p className="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                            <h1 className="display-4 text-white mb-3 animate__animated animate__fadeInDown">{sliders[2]?.category}</h1>
+                                            <p className="mx-md-5 px-5 animate__animated animate__bounceIn">{sliders[2]?.description}</p>
                                             <a className="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
                                         </div>
                                     </div>

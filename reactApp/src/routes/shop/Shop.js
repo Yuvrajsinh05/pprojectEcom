@@ -1,7 +1,15 @@
 import React from "react";
 import Filterby from "./Filterby";
+import { useEffect } from "react";
 
 function Shop() {
+  console.log("ok here" ,decodeURIComponent(window.location.search))
+  // useEffect(() => {
+  //   // const searchParams = new URLSearchParams(window.location.search);
+  //   // console.log("searchParams",searchParams)
+  //   // const fooParam = searchParams.get('');
+  //   console.log(fooParam); // logs the value of the "foo" query parameter
+  // }, []);
   return (
     <>
       <div className="container-fluid">
