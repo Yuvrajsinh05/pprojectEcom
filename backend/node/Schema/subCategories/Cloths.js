@@ -12,9 +12,9 @@ const ProductSchema = new Schema({
     SubType:{type:String , required:true},
     Brands:{type:Array , required:true}
   });
-const Products = mongoose.model('Fashion', ProductSchema);
+const FashionProducts = mongoose.model('Fashion', ProductSchema);
 
-module.exports = Products;
+module.exports = FashionProducts;
 
 
 

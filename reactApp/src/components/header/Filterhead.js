@@ -15,7 +15,7 @@ export function FilterHead({ categories }) {
                         </a>
                         <nav className="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style={{ width: "calc(100% - 30px)", zIndex: "999" }}>
                             <div className="navbar-nav w-100">
-                                {categories.map((cate, index) => { return <Catemenu categories={cate.SubCategories} key={index} />})}
+                                {categories.map((cate, index) => { return <Catemenu categories={cate.SubCategories} key={index} /> })}
                             </div>
                         </nav>
                     </div>
@@ -64,18 +64,18 @@ export function FilterHead({ categories }) {
 }
 
 function Catemenu({ categories, key }) {
-    console.log("cat",categories)
+    console.log("cat", categories)
     return (
         categories.map((subcat, index) => {
             if (subcat.SubType != undefined) {
                 // console.log("this is real", subcat)
                 return (
                     <div className="nav-item dropdown dropright">
-                        <Link  className="nav-link dropdown-toggle" data-toggle="dropdown">{subcat.type}<i className="fa fa-angle-right float-right mt-1"></i></Link>
+                        <Link className="nav-link dropdown-toggle" data-toggle="dropdown">{subcat.type}<i className="fa fa-angle-right float-right mt-1"></i></Link>
                         <div className="dropdown-menu position-absolute rounded-0 border-0 m-0">
                             {subcat.SubType.map((subT, index) => {
                                 return (
-                                <a href={`/shop? ${subT.Name}`}  className="dropdown-item" key={index}>{subT.Name}</a>
+                                    <a href={`/shop? ${subT.Name}`} className="dropdown-item" key={index}>{subT.Name}</a>
                                 )
                             })}
                         </div>

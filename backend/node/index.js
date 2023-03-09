@@ -6,6 +6,7 @@ const CategoriesSchema = require('./Schema/Categories')
 const HomeCorouselSchema = require('./Schema/homecorousel')
 const Mobileschema = require('./Schema/subCategories/Mobiles&Accessories')
 const computerSchema = require('./Schema/subCategories/Computers&Accessories')
+const FashionProducts = require('./Schema/subCategories/Cloths')
 
 
 const app = express()
@@ -87,7 +88,27 @@ app.get('/mobiles',async(req,res)=>{
 // Mobileschema ends here .........
 
 
+// fashion geting
 
+// app.get('/fashion',async(req,res)=>{
+//   try{
+//     const collection = await FashionProducts.find()
+//     res.status(200).json({data:collection , message:"fashion data found"})
+//   }catch(err){
+//     res.status(400).json({message:"error found"})
+//   }
+// })
+app.get('/fashion',async(req,res)=>{
+  const qid = req.query.id
+  console.log("wid",qid)
+  console.log(qid ,"ok herer check")
+  try{
+    const collection = await FashionProducts.find({ $or: [{type: qid}]})
+    res.status(200).json({data:collection , message:"fashion data found"})
+  }catch(err){
+    res.status(400).json({message:"error found"})
+  }
+})
 
 
 // update from here 

@@ -3,13 +3,11 @@ import Filterby from "./Filterby";
 import { useEffect } from "react";
 
 function Shop() {
-  console.log("ok here" ,decodeURIComponent(window.location.search))
-  // useEffect(() => {
-  //   // const searchParams = new URLSearchParams(window.location.search);
-  //   // console.log("searchParams",searchParams)
-  //   // const fooParam = searchParams.get('');
-  //   console.log(fooParam); // logs the value of the "foo" query parameter
-  // }, []);
+  useEffect(() => {
+    let urlCategoryString = decodeURIComponent(window.location.search)
+    let urlCategoryStringSplited =  urlCategoryString.split("?")[1].trim()
+    
+  }, []);
   return (
     <>
       <div className="container-fluid">
@@ -30,8 +28,8 @@ function Shop() {
 
       <div className="container-fluid">
         <div className="row px-xl-5">
-        
-        <Filterby/>
+
+          <Filterby />
 
           <div className="col-lg-9 col-md-8">
             <div className="row pb-3">
@@ -134,7 +132,7 @@ function Shop() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="col-lg-4 col-md-6 col-sm-6 pb-1">
                 <div className="product-item bg-light mb-4">
                   <div className="product-img position-relative overflow-hidden">
