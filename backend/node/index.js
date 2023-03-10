@@ -111,6 +111,16 @@ app.get('/fashion',async(req,res)=>{
 })
 
 
+app.get('/productDetails/:id',async(req,res)=>{
+  const prodID = req.params.id
+  try{
+    const detail = await FashionProducts.find({_id:prodID})
+    res.status(200).json({data:detail,message:"Details fetched"})
+  }catch(err){
+    res.status(400).json({message:err})
+  }
+})
+
 // update from here 
 
 // app.put('/update',async(req,res)=>{

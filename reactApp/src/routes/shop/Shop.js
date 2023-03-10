@@ -8,11 +8,17 @@ function Shop() {
 
   const [productString, setProductString] = useState("")
   useEffect(() => {
-    let urlCategoryString = decodeURIComponent(window.location.search)
-    let urlCategoryStringSplited = urlCategoryString.split("?")[1].trim()
-    setProductString(urlCategoryStringSplited)
+     getCatString()
   }, []);
   
+  const getCatString=()=>{
+    console.log("ruererne",window?.location?.search)
+    if(window?.location?.search){
+      let urlCategoryString = decodeURIComponent(window?.location?.search)
+      let urlCategoryStringSplited = urlCategoryString?.split("?")[1].trim()
+      setProductString(urlCategoryStringSplited)
+    }
+  }
   return (
     <>
       <div className="container-fluid">

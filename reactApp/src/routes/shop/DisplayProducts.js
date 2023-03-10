@@ -51,7 +51,7 @@ function DisplayProduct({ productString }) {
                     alt=""
                   />
                   <div className="product-action">
-                    <a className="btn btn-outline-dark btn-square" href="">
+                    <a className="btn btn-outline-dark btn-square" href={`/shopdetail/${prods?._id}`}>
                       <i className="fa fa-shopping-cart"></i>
                     </a>
                     <a className="btn btn-outline-dark btn-square" href="">
