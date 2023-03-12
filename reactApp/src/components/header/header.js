@@ -43,7 +43,7 @@ function ConfigHead(){
                 <div className="row bg-secondary py-1 px-xl-5">
                     <div className="col-lg-6 d-none d-lg-block">
                         <div className="d-inline-flex align-items-center h-100 uperNavItems">
-                            <Link className="text-body mr-3" href="">About</Link>
+                            <Link className="text-body mr-3" href="">Yuvraj</Link>
                             <Link className="text-body list-none mr-3">Contact</Link>
                             <Link className="text-body mr-3" href="">Help</Link>
                             <Link className="text-body mr-3" href="">FAQs</Link>

@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  api:
+    build: ./backend/node
+    container_name: backendEcom
+    ports: 
+        - '8670:8670'
+    volumes:
+      - './backend/node:/Backend'
+      - './Backend/node_modules'
+  react:
+    build: ./reactapp
+    container_name: ecom_react
+    ports:
+       - '3000:3000'
+    stdin_open: true
+    tty: true

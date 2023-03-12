@@ -1,0 +1,11 @@
+FROM node:16.15.0
+
+WORKDIR /Backend
+
+COPY . .
+
+RUN npm install
+
+EXPOSE 8670
+
+CMD ["npm" , "start"]
